@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c_@pv@%)mmcz0ej^a5v2l9jqhj&*a(h&pt$g%6obs-%zs!4f(s'
+SECRET_KEY = 'qhj&*a(h&pt$g%6obs-%zs!4f(s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,8 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+
+    'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -131,3 +133,8 @@ MEDIAFILES_DIRS = [
 
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
