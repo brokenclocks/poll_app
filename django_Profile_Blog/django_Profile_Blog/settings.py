@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 
     'users.apps.UsersConfig',
     'blog.apps.BlogConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,7 +120,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -138,3 +139,6 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_URL = 'login'
